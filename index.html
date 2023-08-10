@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <style>
+        .loading {
+            margin-top: 20px;
+            height: 150px;
+        }
+        .loading__spinner {
+            transition: all 0.5s ease;
+        }
+        .loading__title {
+            color: white;
+            font-size: 28px;
+            text-align: center;
+            margin-top: 55px;
+        }
+        .loading__text1 {
+            color: white;
+            text-align: center;
+            margin-top: 5px;
+            font-size: 18px;
+        }
+        .loading__text2 {
+            color: white;
+            text-align: center;
+            margin-top: 5px;
+            font-size: 18px;
+        }
+        .loading__text3 {
+            color: white;
+            text-align: center;
+            margin-top: 5px;
+            font-size: 18px;
+        }
+        .hide {
+            display: none;
+            
+        }
+        .show {
+            display: block;
+        }
+        .show__animate {
+            animation-name: show_animate;
+            animation-duration: 1.5s;
+        }
+
+        @keyframes show_animate {
+            0% {
+                opacity: 0.1;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .hide__animate {
+            animation-name: hide_animate;
+            animation-duration: 1s;
+        }
+
+        @keyframes hide_animate {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body style="margin: 0px;background: #0e0e0e; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh">
+    <img style="width: 200px;" src="Magnit.webp">
+
+    <div class="loading">
+        <div class="loading__spinner">
+            <img src="spinner.svg" alt="">
+            <div class="loading__text1 hide">loading</div>
+            <div class="loading__text2 hide">loading</div>
+            <div class="loading__text3 hide">loading</div>
+        </div>
+        <div class="loading__title hide">
+            Hello World!
+        </div>
+    </div>
+
+    <script>
+        setTimeout(() => {
+            document.querySelector('.loading__text1').classList.add('show');
+            document.querySelector('.loading__text1').classList.add('show__animate');
+            document.querySelector('.loading__text1').classList.remove('hide');
+        }, 1000);
+
+        setTimeout(() => {
+            document.querySelector('.loading__text2').classList.add('show');
+            document.querySelector('.loading__text2').classList.add('show__animate');
+            document.querySelector('.loading__text2').classList.remove('hide');
+        }, 2000);
+
+        setTimeout(() => {
+            document.querySelector('.loading__text3').classList.add('show');
+            document.querySelector('.loading__text3').classList.add('show__animate');
+            document.querySelector('.loading__text3').classList.remove('hide');
+        }, 3000);
+
+        setTimeout(() => {
+            document.querySelector('.loading__spinner').classList.add('hide__animate');
+        }, 5000);
+
+        setTimeout(() => {
+            document.querySelector('.loading__spinner').classList.add('hide');
+        }, 6000);
+
+        setTimeout(() => {
+            document.querySelector('.loading__title').classList.add('show');
+            document.querySelector('.loading__title').classList.add('hide');
+            document.querySelector('.loading__title').classList.add('show__animate');
+        }, 6000);
+    </script>
+</body>
+</html>
